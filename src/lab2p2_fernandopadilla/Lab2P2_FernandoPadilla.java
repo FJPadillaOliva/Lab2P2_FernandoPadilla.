@@ -1,5 +1,6 @@
 package lab2p2_fernandopadilla;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -8,9 +9,20 @@ public class Lab2P2_FernandoPadilla {
     static Scanner read = new Scanner(System.in);
     
     public static void main(String[] args) {
+        ArrayList<Chefs> chefs = new ArrayList();
+        ArrayList<Meseros> meseros = new ArrayList();
+        ArrayList<Bartenders> bartenders = new ArrayList();
+        ArrayList<Mesas> mesas = new ArrayList();
         String userI = "";
         String passI = "";
+        int contCM = 0;
+        int contCV = 0;
+        int contMM = 0;
+        int contMV = 0;
+        int contBM = 0;
+        int contBV = 0;
         int opcion = 0;
+        int opcion2 = 0;
         while (!passI.equals("g3r$nt0") && !userI.equals("gerente")) {
             System.out.println("Ingrese el nombre de usuario: ");
             userI = read.next();
@@ -27,7 +39,162 @@ public class Lab2P2_FernandoPadilla {
                     + "1)Crear\n"
                     + "2)Listar\n"
                     + "3)Modificar\n"
-                    + "4)Eliminar");
+                    + "4)Eliminar\n"
+                    +"5.Salir");
+            opcion = read.nextInt();
+            switch(opcion){
+                case 1:
+                    System.out.println("Que desea crear?\n"
+                            + "1)Chef\n"
+                            + "2)Mesero\n"
+                            + "3)Bartender\n"
+                            + "4)Mesa");
+                    opcion2 = read.nextInt();
+                    switch(opcion2){
+                        case 1:
+                            if(contCM <= 7 && contCV <= 7){
+                                int turno = 0;
+                                String turnoS = "";
+                                System.out.println("Ingrese el nombre del chef: ");
+                                String nombre = read.nextLine();
+                                read = new Scanner(System.in);
+                                System.out.println("Ingrese la edad del chef: ");
+                                int edad = read.nextInt();
+                                while (turno < 1 || turno >2) {                                    
+                                    System.out.println("Ingrese el turno del chef (1.Matutino/2.Vespertino)");
+                                    turno = read.nextInt();
+                                    if (turno == 1) {
+                                        turnoS = "Matutino";
+                                        contCM++;
+                                    }else if(turno ==2){
+                                        turnoS = "Vespertino";
+                                        contCV++;
+                                    }
+                                }
+                                System.out.println("Ingrese el numero de estrellas Michelin: ");
+                                int estrellas = read.nextInt();
+                                System.out.println("Ingrese el sueldo del chef: ");
+                                int sueldo = read.nextInt();
+                                if (contCM <= 7 && turno == 1) {
+                                    chefs.add(new Chefs(nombre, edad, turnoS, estrellas, sueldo));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno matutino lleno");
+                                }
+                                if (contCV <= 7 && turno == 2) {
+                                    chefs.add(new Chefs(nombre, edad, turnoS, estrellas, sueldo));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno vespertino lleno");
+                                }
+                            }else{
+                                System.out.println("Numero maximo de chefs alcanzado");
+                            }
+                            break;
+                        case 2:
+                            if(contMM <= 4 && contMV <= 4){
+                                int turno = 0;
+                                String turnoS = "";
+                                System.out.println("Ingrese el nombre del mesero: ");
+                                String nombre = read.nextLine();
+                                read = new Scanner(System.in);
+                                System.out.println("Ingrese la edad del mesero: ");
+                                int edad = read.nextInt();
+                                while (turno < 1 || turno >2) {                                    
+                                    System.out.println("Ingrese el turno del mesero (1.Matutino/2.Vespertino)");
+                                    turno = read.nextInt();
+                                    if (turno == 1) {
+                                        turnoS = "Matutino";
+                                        contCM++;
+                                    }else if(turno ==2){
+                                        turnoS = "Vespertino";
+                                        contCV++;
+                                    }
+                                }
+                                System.out.println("Ingrese el sueldo del mesero: ");
+                                int sueldo = read.nextInt();
+                                System.out.println("Ingrese la propina del mesero: ");
+                                int propina = read.nextInt();
+                                if (contCM <= 4 && turno == 1) {
+                                    meseros.add(new Meseros(nombre, edad, turnoS, sueldo, propina));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno matutino lleno");
+                                }
+                                if (contCV <= 4 && turno == 2) {
+                                    meseros.add(new Meseros(nombre, edad, turnoS, sueldo, propina));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno vespertino lleno");
+                                }
+                            }else{
+                                System.out.println("Numero maximo de meseros alcanzado");
+                            }
+                            break;
+                        case 3:
+                            if(contBM <= 2 && contBV <= 2){
+                                int turno = 0;
+                                String turnoS = "";
+                                System.out.println("Ingrese el nombre del bartender: ");
+                                String nombre = read.nextLine();
+                                read = new Scanner(System.in);
+                                System.out.println("Ingrese la edad del bartender: ");
+                                int edad = read.nextInt();
+                                while (turno < 1 || turno >2) {                                    
+                                    System.out.println("Ingrese el turno del bartender (1.Matutino/2.Vespertino)");
+                                    turno = read.nextInt();
+                                    if (turno == 1) {
+                                        turnoS = "Matutino";
+                                        contCM++;
+                                    }else if(turno ==2){
+                                        turnoS = "Vespertino";
+                                        contCV++;
+                                    }
+                                }
+                                System.out.println("Ingrese el sueldo del bartender: ");
+                                int sueldo = read.nextInt();
+                                System.out.println("Ingrese el numero de licores del bartender: ");
+                                int numL = read.nextInt();
+                                if (contBM <= 2 && turno == 1) {
+                                    bartenders.add(new Bartenders(nombre, edad, turnoS, sueldo, numL));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno matutino lleno");
+                                }
+                                if (contBV <= 2 && turno == 2) {
+                                    bartenders.add(new Bartenders(nombre, edad, turnoS, sueldo, numL));
+                                    System.out.println("Agregado con exito");
+                                }else{
+                                    System.out.println("Turno vespertino lleno");
+                                }
+                            }else{
+                                System.out.println("Numero maximo de bartenders alcanzado");
+                            }
+                            break;
+                        case 4:
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion no valida");
+                            break;
+                    }
+                    break;
+                case 2:
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    
+                    break;
+                case 5:
+                    opcion = 5;
+                    break;
+                default:
+                    System.out.println("Opcion no valida");
+                    break;
+            }
         } while (opcion != 5);
     }
     
