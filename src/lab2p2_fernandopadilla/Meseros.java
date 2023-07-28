@@ -59,6 +59,11 @@ public class Meseros {
     public void setPropina(int propina) {
         this.propina = propina;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre=" + nombre + ", edad=" + edad + ", turno=" + turno + ", sueldo=" + sueldo + ", propina=" + propina;
+    }
    
    
 }

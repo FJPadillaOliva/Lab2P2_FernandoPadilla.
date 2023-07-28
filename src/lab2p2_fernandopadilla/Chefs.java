@@ -59,5 +59,11 @@ public class Chefs {
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre=" + nombre + ", edad=" + edad + ", turno=" + turno + ", numero de estrellas=" + numEstrellas + ", sueldo=" + sueldo;
+    }
+    
     
 }

@@ -59,6 +59,11 @@ public class Bartenders {
     public void setLicores(int licores) {
         this.licores = licores;
     }
+
+    @Override
+    public String toString() {
+        return "Nombre=" + nombre + ", edad=" + edad + ", turno=" + turno + ", sueldo=" + sueldo + ", numero de licores=" + licores;
+    }
  
  
 }

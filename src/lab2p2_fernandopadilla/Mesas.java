@@ -40,6 +40,11 @@ public class Mesas {
     public void setPrecioT(int precioT) {
         this.precioT = precioT;
     }
+
+    @Override
+    public String toString() {
+        return  "Numero de platos=" + platos + ", numero de utensilios=" + utensilios + ", precio total=" + precioT;
+    }
     
     
 }
