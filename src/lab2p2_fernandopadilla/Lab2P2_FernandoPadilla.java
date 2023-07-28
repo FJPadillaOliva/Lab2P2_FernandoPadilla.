@@ -254,6 +254,7 @@ public class Lab2P2_FernandoPadilla {
                     switch (opcion2) {
                         case 1:
                             if (index >= 0 && index < chefs.size()) {
+                                String tipo = chefs.get(index).getTurno();
                                 int turno = 0;
                                 String turnoS = "";
                                 System.out.println("Ingrese el nombre del chef: ");
@@ -280,12 +281,20 @@ public class Lab2P2_FernandoPadilla {
                                 chefs.remove(index);
                                 chefs.add(index, new Chefs(nombre, edad, turnoS, estrellas, sueldo));
                                 System.out.println("Modificado con exito");
+                                if (tipo.equals("Matutino") && !chefs.get(index).getTurno().equals("Matutino")) {
+                                    contCM--;
+                                    contCV++;
+                                }else if(tipo.equals("Vespertino") && !chefs.get(index).getTurno().equals("Vespertino")){
+                                    contCM++;
+                                    contCV--;
+                                }
                             } else {
                                 System.out.println("Fuera de rango");
                             }
                             break;
                         case 2:
                             if (index >= 0 && index < meseros.size()) {
+                                String tipo = meseros.get(index).getTurno();
                                 int turno = 0;
                                 String turnoS = "";
                                 System.out.println("Ingrese el nombre del mesero: ");
@@ -312,12 +321,20 @@ public class Lab2P2_FernandoPadilla {
                                 meseros.remove(index);
                                 meseros.add(index, new Meseros(nombre, edad, turnoS, sueldo, propina));
                                 System.out.println("Modificado con exito ");
+                                if (tipo.equals("Matutino") && !meseros.get(index).getTurno().equals("Matutino")) {
+                                    contCM--;
+                                    contCV++;
+                                }else if(tipo.equals("Vespertino") && !meseros.get(index).getTurno().equals("Vespertino")){
+                                    contCM++;
+                                    contCV--;
+                                }
                             } else {
                                 System.out.println("Fuera de rango");
                             }
                             break;
                         case 3:
                             if (index >= 0 && index < bartenders.size()) {
+                                String tipo = bartenders.get(index).getTurno();
                                 int turno = 0;
                                 String turnoS = "";
                                 System.out.println("Ingrese el nombre del bartender: ");
@@ -344,6 +361,13 @@ public class Lab2P2_FernandoPadilla {
                                 bartenders.remove(index);
                                 bartenders.add(index, new Bartenders(nombre, edad, turnoS, sueldo, index));
                                 System.out.println("Modificado con exito");
+                                if (tipo.equals("Matutino") && !bartenders.get(index).getTurno().equals("Matutino")) {
+                                    contCM--;
+                                    contCV++;
+                                }else if(tipo.equals("Vespertino") && !bartenders.get(index).getTurno().equals("Vespertino")){
+                                    contCM++;
+                                    contCV--;
+                                }
                             } else {
                                 System.out.println("Fuera de rango");
                             }
