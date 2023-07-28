@@ -389,6 +389,8 @@ public class Lab2P2_FernandoPadilla {
                                 }
                                 chefs.remove(index);
                                 System.out.println("Eliminado con exito");
+                            }else{
+                                System.out.println("Fuera de rango");
                             }
                             break;
                         case 2:
@@ -400,6 +402,8 @@ public class Lab2P2_FernandoPadilla {
                                 }
                                 meseros.remove(index);
                                 System.out.println("Eliminado con exito");
+                            }else{
+                                System.out.println("Fuera de rango");
                             }
                             break;
                         case 3:
@@ -411,6 +415,8 @@ public class Lab2P2_FernandoPadilla {
                                 }
                                 bartenders.remove(index);
                                 System.out.println("Eliminado con exito");
+                            }else{
+                                System.out.println("Fuera de rango");
                             }
                             break;
                         case 4:
@@ -418,6 +424,8 @@ public class Lab2P2_FernandoPadilla {
                                 mesas.remove(index);
                                 contmesas--;
                                 System.out.println("Eliminado con exito");
+                            }else{
+                                System.out.println("Fuera de rango");
                             }
                             break;
                         default:
